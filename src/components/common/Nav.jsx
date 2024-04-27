@@ -1,23 +1,20 @@
 import React from "react";
 import "./Nav.css";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <header>
       <article>
-        <h1>
-          <a href="/">
-            Northwest <span>Animal Hospital</span>
-          </a>
-        </h1>
+        <Link to="/"><h1>Northwest <span>Animal Hospital</span></h1></Link>
       </article>
       <aside>
         <ul>
           <li>
-            <a href="/staff">All Staff</a>
+            <Link to="/staff">All Staff</Link>
           </li>
           <li>
-            <a href="/pets">All Pets</a>
+            <Link to="/pets">All Pets</Link>
           </li>
         </ul>
       </aside>
