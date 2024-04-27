@@ -2,9 +2,21 @@ import React from "react";
 import PetsListNav from "./PetsListNav";
 import Pet from "./Pet";
 import "./PetsList.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const PetsList = ({ pets }) => {
+
+  const { animal } = useParams();
+  const navigate = useNavigate();
+
+  useEffect( () => {
+    if(!animal) {
+      navigate("/pets/cats");
+    }
+  }, [])
+
+  console.log(animal);
   const [cats, dogs] = pets.reduce(
     (acc, pet) => {
       const position = pet.kind === "Cat" ? 0 : 1;
@@ -15,30 +27,23 @@ export const PetsList = ({ pets }) => {
   );
 
   return (
-    <Router>
       <section className="pets-wrapper">
         <PetsListNav cats={cats} dogs={dogs} />
-        <Routes>
-          <section className="pets-list">
+        <section className="pets-list" >              
+          { animal === "cats" ? 
+            cats.map((cat) => (
+              <Pet key={cat.id} kind="cat" pet={cat} />
+                ))
 
-            {/* All cats section */}
-            <Route 
-              path="/pets/cats" 
-              element={ cats.map((cat) => (
-                <Pet key={cat.id} kind="cat" pet={cat} />
-              )) } />        
-
-            {/* All dogs section */}
-            <Route 
-              path="/pets/dogs"
-              element={ dogs.map((dog) => (
+            : animal === "dogs" ? 
+              dogs.map((dog) => (
                 <Pet key={dog.id} kind="dog" pet={dog} />
-            )) } />
-
-          </section>
-        </Routes>
+                )) 
+                
+            : "Page Not Found"
+          }
+        </section>
       </section>
-    </Router>
   );
 };
 
