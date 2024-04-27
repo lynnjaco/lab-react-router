@@ -1,0 +1,29 @@
+.staff-list {
+  margin: 25px auto;
+  width: 70%;
+}
+
+.staffers {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.staffer {
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  display: block;
+  padding: 25px;
+  text-align: center;
+}
+
+.staffer h3 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.staffer h4 {
+  color: var(--primary);
+  font-weight: 300;
+  margin: 0;
+}

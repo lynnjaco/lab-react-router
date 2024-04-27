@@ -1,0 +1,22 @@
+.highlights {
+  background: var(--primary);
+  border-top: 3px solid var(--white);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 25px 100px;
+  text-align: center;
+}
+
+.highlights article {
+  margin: 0 50px;
+  width: 200px;
+}
+
+.highlights .numerical {
+  font-family: var(--font-zen);
+  font-size: 48px;
+  margin: 0;
+}

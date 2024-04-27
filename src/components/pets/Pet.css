@@ -1,0 +1,18 @@
+.pets-list article {
+  border-bottom: 1px solid var(--primary);
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.pets-list article:first-child {
+  margin-top: 25px;
+}
+
+.pets-list article:last-child {
+  border: none;
+}
+
+.pets-list article h3,
+.pets-list article p {
+  margin: 0;
+}
